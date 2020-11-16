@@ -7,6 +7,8 @@ import { LoginModule } from './login/login.module';
 import { CoreModule } from './core/core.module';
 import { UiModule } from './ui/ui.module';
 import { IconsModule } from './icons/icons.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { IconsModule } from './icons/icons.module';
     LoginModule,
     CoreModule,
     UiModule,
-    IconsModule
+    IconsModule,
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
