@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crm-gfi-nov';
+
+  public changeTitle(): void {
+    this.title = 'New Title';
+  }
 }
