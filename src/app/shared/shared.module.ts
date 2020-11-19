@@ -7,11 +7,12 @@ import { ButtonComponent } from './components/button/button.component';
 import { TabLightComponent } from './components/tab-light/tab-light.component';
 import { TotalPipe } from './pipes/total.pipe';
 import { StateDirective } from './directives/state.directive';
+import { TabDarkComponent } from './components/tab-dark/tab-dark.component';
 
 
 
 @NgModule({
-  declarations: [TabLightComponent, ButtonComponent, TotalPipe, StateDirective],
+  declarations: [TabLightComponent, ButtonComponent, TotalPipe, StateDirective, TabDarkComponent],
   imports: [
     CommonModule,
     RouterModule
@@ -22,7 +23,8 @@ import { StateDirective } from './directives/state.directive';
     TabLightComponent,
     ButtonComponent,
     TotalPipe,
-    StateDirective
+    StateDirective,
+    TabDarkComponent
   ]
 })
 export class SharedModule { }
