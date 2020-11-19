@@ -12,3 +12,9 @@
     margin-bottom: 0;
   }
 }
+
+.secondary {
+  .bandeau {
+    background-color: var(--app-secondary);
+  }
+}

@@ -1,4 +1,4 @@
-<app-template-full-width *ngIf="collection$ | async as collection">
+<app-template-full-width [secondaryBgColor]="true" *ngIf="collection$ | async as collection">
   <h1 class="title">Orders list</h1>
 
   <app-tab-light [headers]="listHeaders">

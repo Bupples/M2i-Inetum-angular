@@ -12,8 +12,8 @@ a, button {
   }
 }
 
-// :host-context(.secondary) {
-//   a, button {
-//     background: var(--app-secondary);
-//   }
-// }
+:host-context(.secondary) {
+  a, button {
+    background: var(--app-secondary);
+  }
+}
