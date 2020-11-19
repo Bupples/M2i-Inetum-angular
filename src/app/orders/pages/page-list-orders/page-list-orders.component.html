@@ -9,7 +9,14 @@
       <td>{{ item.tjmHt | currency }}</td>
       <td>{{ item.tjmHt | total: item.nbJours | currency }}</td>
       <td>{{ item.tjmHt | total: item.nbJours: item.tva | currency }}</td>
-      <td>{{ item.state }}</td>
+      <td [appState]="item.state">
+        <select (change)="changeState(item, $event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
+          <!-- <option value="CANCELED">CANCELED</option>
+          <option value="OPTION">OPTION</option>
+          <option value="CONFIRMED">CONFIRMED</option> -->
+        </select>
+      </td>
     </tr>
   </app-tab-light>
   <app-button label="Search on Google..." href="http://www.google.com"></app-button>
