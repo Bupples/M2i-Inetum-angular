@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order.enum';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from 'src/app/core/services/orders.service';
@@ -13,7 +13,7 @@ import { OrdersService } from 'src/app/core/services/orders.service';
 export class PageListOrdersComponent implements OnInit, OnDestroy {
   public listHeaders: string[];
   // public collection: Order[];
-  public collection$: Observable<Order[]>;
+  public collection$: Subject<Order[]> = new Subject();
   public states = Object.values(StateOrder);
   private obs = new Observable((subscribers) => {
     subscribers.next('hey');
@@ -32,6 +32,7 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
     });
 
     this.listHeaders = [
+      "Action",
       "Type",
       "Client",
       "NbDay",
@@ -44,11 +45,11 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
     this.route.data.subscribe((param) => {
     });
 
-    // this.os.collection.subscribe((data) => {
-    //   this.collection = data;
-    // });
+    this.os.collection.subscribe((data) => {
+      this.collection$.next(data);
+    });
 
-    this.collection$ = this.os.collection;
+    // this.collection$ = this.os.collection;
   }
 
   ngOnDestroy(): void {
@@ -66,6 +67,14 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
 
   public openPopUp(param: string): void {
     console.log(param);
+  }
+
+  public delete(item: Order): void {
+    this.os.delete(item).subscribe((res) => {
+      this.os.collection.subscribe((data) => {
+        this.collection$.next(data);
+      });
+    });
   }
 
 }
