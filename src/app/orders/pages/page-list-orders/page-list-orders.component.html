@@ -1,4 +1,4 @@
-<app-template-full-width *ngIf="collection">
+<app-template-full-width *ngIf="collection$ | async as collection">
   <h1 class="title">Orders list</h1>
 
   <app-tab-light [headers]="listHeaders">
@@ -12,9 +12,6 @@
       <td [appState]="item.state">
         <select (change)="changeState(item, $event)">
           <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
-          <!-- <option value="CANCELED">CANCELED</option>
-          <option value="OPTION">OPTION</option>
-          <option value="CONFIRMED">CONFIRMED</option> -->
         </select>
       </td>
     </tr>
