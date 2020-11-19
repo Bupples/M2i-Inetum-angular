@@ -1,0 +1,21 @@
+.tab-light {
+  .state-canceled {
+    background: var(--app-error);
+  }
+
+  .state-option {
+    background: var(--app-warning);
+  }
+
+  .state-confirmed {
+    background: var(--app-success);
+  }
+
+  .state-inactive {
+    background: var(--app-primary);
+  }
+
+  .state-active {
+    background: var(--app-secondary);
+  }
+}
