@@ -64,4 +64,8 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
     });
   }
 
+  public openPopUp(param: string): void {
+    console.log(param);
+  }
+
 }

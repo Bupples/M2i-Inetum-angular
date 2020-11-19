@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 /**
  * Redirect (href)
@@ -15,6 +15,7 @@ export class ButtonComponent implements OnInit {
   @Input() href: string;
   @Input() route: string;
   @Input() action: boolean;
+  @Output() clicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -22,7 +23,7 @@ export class ButtonComponent implements OnInit {
   }
 
   public doAction(): void {
-    console.log('btn clicked!');
+    this.clicked.emit('btn clicked!');
   }
 
 }

@@ -16,5 +16,5 @@
       </td>
     </tr>
   </app-tab-light>
-  <app-button label="Add Order" route="add"></app-button>
+  <app-button [action]="true" label="Open Pop-up" (clicked)="openPopUp($event)"></app-button>
 </app-template-full-width>
