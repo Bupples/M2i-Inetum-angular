@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order.enum';
 import { Order } from 'src/app/core/models/order';
@@ -23,7 +23,8 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private os: OrdersService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,14 +33,14 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
     });
 
     this.listHeaders = [
-      "Action",
       "Type",
       "Client",
       "NbDay",
       "TjmHT",
       "TotalHT",
       "TotalTTC",
-      "State"
+      "State",
+      "Action"
     ];
 
     this.route.data.subscribe((param) => {
@@ -75,6 +76,10 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
         this.collection$.next(data);
       });
     });
+  }
+
+  public goToEdit(item: Order): void {
+    this.router.navigate(['orders', 'edit', item.id]);
   }
 
 }

@@ -1,0 +1,19 @@
+app-txt-dialog-error {
+  h1, h2 {
+    color: var(--app-success);
+  }
+
+  h1 {
+    font-size: var(--app-h1-fs);
+  }
+
+  h2 {
+    font-size: var(--app-h2-fs);
+  }
+
+  p, span, li, a {
+    font-size: var(--app-regular-fs);
+    color: var(--app-dark);
+  }
+
+}

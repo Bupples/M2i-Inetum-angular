@@ -1,0 +1,17 @@
+app-txt-page {
+  h1, h2, p {
+    color: var(--app-dark);
+  }
+
+  h1 {
+    font-size: var(--app-h1-fs);
+  }
+
+  h2 {
+    font-size: var(--app-h2-fs);
+  }
+
+  p, span, li, a {
+    font-size: var(--app-regular-fs);
+  }
+}

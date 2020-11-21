@@ -1,0 +1,13 @@
+app-txt-bandeau {
+  h1, h2, p {
+    color: var(--app-light);
+  }
+
+  h1 {
+    font-size: var(--app-h1-fs);
+  }
+
+  h2 {
+    font-size: vat(--app-h2-fs);
+  }
+}

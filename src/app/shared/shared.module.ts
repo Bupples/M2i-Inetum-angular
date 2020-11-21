@@ -8,18 +8,22 @@ import { TabLightComponent } from './components/tab-light/tab-light.component';
 import { TotalPipe } from './pipes/total.pipe';
 import { StateDirective } from './directives/state.directive';
 import { TabDarkComponent } from './components/tab-dark/tab-dark.component';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextsModule } from '../texts/texts.module';
 
 @NgModule({
   declarations: [TabLightComponent, ButtonComponent, TotalPipe, StateDirective, TabDarkComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    TextsModule
   ],
   exports: [
     TemplatesModule,
     IconsModule,
+    ReactiveFormsModule,
+    TextsModule,
     TabLightComponent,
     ButtonComponent,
     TotalPipe,

@@ -5,11 +5,12 @@ import { OrdersRoutingModule } from './orders-routing.module';
 import { PageAddOrdersComponent } from './pages/page-add-orders/page-add-orders.component';
 import { PageEditOrdersComponent } from './pages/page-edit-orders/page-edit-orders.component';
 import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orders.component';
+import { FormOrdersComponent } from './components/form-orders/form-orders.component';
 
 
 
 @NgModule({
-  declarations: [PageAddOrdersComponent, PageEditOrdersComponent, PageListOrdersComponent],
+  declarations: [PageAddOrdersComponent, PageEditOrdersComponent, PageListOrdersComponent, FormOrdersComponent],
   imports: [
     CommonModule,
     OrdersRoutingModule,

@@ -1,12 +1,11 @@
 <app-template-full-width [secondaryBgColor]="true" *ngIf="collection$ | async as collection">
-  <h1 class="title">Orders list</h1>
+  <app-txt-bandeau class="title">
+    <h1>Orders list</h1>
+  </app-txt-bandeau>
+
 
   <app-tab-light [headers]="listHeaders">
     <tr *ngFor="let item of collection">
-      <td>
-        <app-icon-edit></app-icon-edit>
-        <app-icon-delete (click)="delete(item)"></app-icon-delete>
-      </td>
       <td>{{ item.typePresta }}</td>
       <td>{{ item.client }}</td>
       <td>{{ item.nbJours }}</td>
@@ -18,7 +17,12 @@
           <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
         </select>
       </td>
+      <td>
+        <app-icon-edit (click)="goToEdit(item)"></app-icon-edit>
+        <app-icon-delete (click)="delete(item)"></app-icon-delete>
+      </td>
     </tr>
   </app-tab-light>
-  <app-button [action]="true" label="Open Pop-up" (clicked)="openPopUp($event)"></app-button>
+  <app-button route="add" label="Add Orders"></app-button>
+  <app-button [action]="true" label="Event Binding" (clicked)="openPopUp($event)"></app-button>
 </app-template-full-width>
